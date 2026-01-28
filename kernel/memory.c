@@ -12,15 +12,14 @@ void memory_init(void) {
 
 void* kmalloc(size_t size) {
     if (heap_ptr + size > heap_end) {
-        return (void*)0;
+        return NULL;
     }
     void* ptr = heap_ptr;
     heap_ptr += size;
-    // Align to 4 bytes
     heap_ptr = (uint8_t*)(((uint32_t)heap_ptr + 3) & ~3);
     return ptr;
 }
 
 void kfree(void* ptr) {
-    (void)ptr; // Simple allocator - no free
+    (void)ptr;
 }
