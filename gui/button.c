@@ -18,7 +18,6 @@ void button_draw(struct button* btn) {
     vga_fillrect(btn->x, btn->y, btn->w, btn->h, bg);
     vga_rect(btn->x, btn->y, btn->w, btn->h, COLOR_BLACK);
     
-    // 3D effect
     if (!btn->pressed) {
         for (int i = 0; i < btn->w - 1; i++) {
             vga_putpixel(btn->x + i, btn->y, COLOR_WHITE);
@@ -28,7 +27,7 @@ void button_draw(struct button* btn) {
         }
     }
     
-    int text_x = btn->x + (btn->w - strlen(btn->label) * 8) / 2;
+    int text_x = btn->x + (btn->w - (int)strlen(btn->label) * 8) / 2;
     int text_y = btn->y + (btn->h - 8) / 2;
     vga_print(text_x, text_y, btn->label, COLOR_BLACK);
 }
