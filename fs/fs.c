@@ -17,7 +17,7 @@ static struct file* find_file(const char* name) {
             return &files[i];
         }
     }
-    return (struct file*)0;
+    return NULL;
 }
 
 int fs_create(const char* name) {
@@ -70,7 +70,7 @@ int fs_list(char names[][MAX_FILENAME], int max_count) {
 }
 
 int fs_exists(const char* name) {
-    return find_file(name) != (struct file*)0;
+    return find_file(name) != NULL;
 }
 
 uint32_t fs_size(const char* name) {
