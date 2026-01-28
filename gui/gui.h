@@ -1,7 +1,7 @@
 #ifndef GUI_H
 #define GUI_H
 
-#include <stdint.h>
+#include "lib/types.h"
 
 #define GUI_STATE_WELCOME  0
 #define GUI_STATE_SETUP    1
