@@ -1,11 +1,11 @@
 #include "gui/welcome.h"
+#include "gui/gui.h"
 #include "drivers/vga.h"
 #include "drivers/timer.h"
 
 void welcome_show(void) {
     vga_clear(COLOR_BLUE);
     
-    // Logo area
     vga_fillrect(100, 50, 120, 40, COLOR_CYAN);
     vga_rect(100, 50, 120, 40, COLOR_WHITE);
     vga_print(120, 65, "MiniOS", COLOR_WHITE);
@@ -15,7 +15,6 @@ void welcome_show(void) {
     
     vga_swap();
     
-    // Progress bar
     for (int i = 0; i < 100; i++) {
         vga_fillrect(60 + i * 2, 150, 2, 16, COLOR_GREEN);
         vga_rect(60, 150, 200, 16, COLOR_WHITE);
