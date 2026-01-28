@@ -6,7 +6,7 @@ extern void irq0(void);
 extern void irq1(void);
 extern void irq12(void);
 
-void irq_remap(void) {
+static void irq_remap(void) {
     outb(0x20, 0x11);
     outb(0xA0, 0x11);
     outb(0x21, 0x20);
