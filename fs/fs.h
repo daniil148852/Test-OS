@@ -1,7 +1,7 @@
 #ifndef FS_H
 #define FS_H
 
-#include <stdint.h>
+#include "lib/types.h"
 
 #define MAX_FILES 32
 #define MAX_FILENAME 32
