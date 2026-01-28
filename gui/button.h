@@ -1,7 +1,7 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include <stdint.h>
+#include "lib/types.h"
 
 struct button {
     int x, y, w, h;
