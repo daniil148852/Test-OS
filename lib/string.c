@@ -57,7 +57,6 @@ void itoa(int num, char* str) {
     if (sign < 0) str[i++] = '-';
     str[i] = '\0';
     
-    // Reverse
     int j;
     for (j = 0; j < i / 2; j++) {
         char tmp = str[j];
