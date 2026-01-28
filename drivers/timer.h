@@ -1,7 +1,7 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include <stdint.h>
+#include "lib/types.h"
 
 void timer_init(void);
 void timer_handler(void);
