@@ -25,7 +25,6 @@ void kernel_main(void) {
     
     fs_init();
     
-    // Create default files
     fs_create("readme.txt");
     fs_write("readme.txt", "Welcome to MiniOS!\nThis is a simple operating system.", 54);
     fs_create("notes.txt");
