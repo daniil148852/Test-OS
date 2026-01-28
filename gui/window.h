@@ -1,7 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <stdint.h>
+#include "lib/types.h"
 
 #define MAX_WINDOWS 8
 
