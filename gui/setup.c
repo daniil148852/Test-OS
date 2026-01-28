@@ -1,4 +1,5 @@
 #include "gui/setup.h"
+#include "gui/gui.h"
 #include "gui/button.h"
 #include "drivers/vga.h"
 #include "drivers/mouse.h"
@@ -21,7 +22,6 @@ void setup_show(void) {
     while (!setup_complete) {
         vga_clear(COLOR_BLUE);
         
-        // Setup window
         vga_fillrect(40, 30, 240, 150, COLOR_LGRAY);
         vga_rect(40, 30, 240, 150, COLOR_BLACK);
         vga_fillrect(40, 30, 240, 14, COLOR_BLUE);
@@ -56,7 +56,6 @@ void setup_show(void) {
             btn_finish.pressed = 0;
         }
         
-        // Handle keyboard input
         if (keyboard_haskey()) {
             char c = keyboard_getchar();
             int len = strlen(username);
