@@ -59,10 +59,8 @@ void desktop_init(void) {
 }
 
 static void draw_desktop(void) {
-    // Desktop background
     vga_clear(COLOR_CYAN);
     
-    // Desktop icons
     vga_fillrect(10, 10, 40, 35, COLOR_LGRAY);
     vga_rect(10, 10, 40, 35, COLOR_BLACK);
     vga_print(12, 15, "File", COLOR_BLACK);
@@ -73,14 +71,11 @@ static void draw_desktop(void) {
     vga_print(15, 78, "Cfg", COLOR_BLACK);
     vga_print(2, 108, "Settings", COLOR_WHITE);
     
-    // Taskbar
     vga_fillrect(0, VGA_HEIGHT - 20, VGA_WIDTH, 20, COLOR_LGRAY);
     vga_rect(0, VGA_HEIGHT - 20, VGA_WIDTH, 20, COLOR_DGRAY);
     
-    // Start button
     button_draw(&btn_start);
     
-    // Clock
     uint32_t ticks = timer_get_ticks();
     int seconds = (ticks / 100) % 60;
     int minutes = (ticks / 6000) % 60;
@@ -93,7 +88,6 @@ static void draw_desktop(void) {
     time_str[5] = '\0';
     vga_print(VGA_WIDTH - 50, VGA_HEIGHT - 14, time_str, COLOR_BLACK);
     
-    // Start menu
     if (show_start_menu) {
         vga_fillrect(2, VGA_HEIGHT - 95, 85, 75, COLOR_LGRAY);
         vga_rect(2, VGA_HEIGHT - 95, 85, 75, COLOR_BLACK);
@@ -104,7 +98,6 @@ static void draw_desktop(void) {
         button_draw(&btn_files);
     }
     
-    // Windows
     window_draw(&win_settings);
     window_draw(&win_fileman);
 }
@@ -118,13 +111,10 @@ void desktop_update(void) {
     gui_draw_cursor(mx, my);
     vga_swap();
     
-    // Handle clicks
     if ((buttons & 1) && !(prev_buttons & 1)) {
-        // Check start button
         if (button_hit_test(&btn_start, mx, my)) {
             if (btn_start.on_click) btn_start.on_click();
         }
-        // Check start menu buttons
         else if (show_start_menu) {
             if (button_hit_test(&btn_settings, mx, my) && btn_settings.on_click) {
                 btn_settings.on_click();
@@ -133,14 +123,12 @@ void desktop_update(void) {
                 btn_files.on_click();
             }
         }
-        // Check desktop icons
         else if (mx >= 10 && mx < 50 && my >= 10 && my < 55) {
             open_files();
         }
         else if (mx >= 10 && mx < 50 && my >= 70 && my < 115) {
             open_settings();
         }
-        // Check windows
         else if (window_hit_test(&win_settings, mx, my)) {
             if (window_hit_close(&win_settings, mx, my)) {
                 win_settings.visible = 0;
