@@ -18,9 +18,9 @@ void gdt_init(void) {
     gp.limit = (sizeof(struct gdt_entry) * 3) - 1;
     gp.base = (uint32_t)&gdt;
 
-    gdt_set_gate(0, 0, 0, 0, 0);                // Null
-    gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF); // Code
-    gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF); // Data
+    gdt_set_gate(0, 0, 0, 0, 0);
+    gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF);
+    gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF);
 
     gdt_flush((uint32_t)&gp);
 }
