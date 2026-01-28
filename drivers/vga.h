@@ -1,12 +1,11 @@
 #ifndef VGA_H
 #define VGA_H
 
-#include <stdint.h>
+#include "lib/types.h"
 
 #define VGA_WIDTH  320
 #define VGA_HEIGHT 200
 
-// Colors
 #define COLOR_BLACK     0
 #define COLOR_BLUE      1
 #define COLOR_GREEN     2
