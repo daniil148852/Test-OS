@@ -6,5 +6,6 @@
 void settings_init(struct window* win);
 void settings_draw(struct window* win);
 void settings_click(struct window* win, int x, int y);
+int settings_get_theme(void);
 
 #endif
