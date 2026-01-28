@@ -12,7 +12,6 @@ int gui_get_state(void) {
 }
 
 void gui_draw_cursor(int x, int y) {
-    // Arrow cursor
     for (int i = 0; i < 10; i++) {
         vga_putpixel(x, y + i, COLOR_WHITE);
     }
