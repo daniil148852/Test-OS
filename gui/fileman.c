@@ -103,7 +103,6 @@ void fileman_click(struct window* win, int x, int y) {
         return;
     }
     
-    // Check file list clicks
     for (int i = 0; i < file_count && i < 6; i++) {
         int fy = win->y + 32 + i * 14;
         if (x >= win->x + 10 && x < win->x + win->w - 10 &&
